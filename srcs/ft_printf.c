@@ -3,39 +3,39 @@
 int	ft_printf(const char *fmt, ...)
 {
 	va_list	pta;
-	char	*p;
+	//char	*p;
+	int	i;
 	int	ret;
 	
 	va_start(pta, fmt);
-	p = (char *)fmt;
+	//p = (char *)fmt;
 	ret = 0;
-	while (*p)
+	i = -1;
+	while (fmt[++i])
 	{
-		if (*p == '%')
+		if (fmt[i] == '%')
 		{
-			++p;
-			if (*p == '%')
+			if (fmt[++i] == '%')
 				ret += ft_putchar('%');
-			if (*p == 'c')
+			if (fmt[i] == 'c')
 				ret += ft_putchar(va_arg(pta, int));
-			if (*p == 's')
+			if (fmt[i] == 's')
 				ret += ft_putstr(va_arg(pta, char *));
-			if (*p == 'p')
+			if (fmt[i] == 'p')
 				ret += print_address_hex(va_arg(pta, void *));	
-			if (*p == 'd')
+			if (fmt[i] == 'd')
 				ft_putnbr(va_arg(pta, int), &ret);
-			if (*p == 'i')
+			if (fmt[i] == 'i')
 				ft_putnbr(va_arg(pta, int), &ret);
-			if (*p == 'u')
+			if (fmt[i] == 'u')
 				ft_u_putnbr(va_arg(pta, int), &ret);
-			if (*p == 'x')
+			if (fmt[i] == 'x')
 				ft_print_hex(va_arg(pta, unsigned int), 'x', &ret);
-			if (*p == 'X')
+			if (fmt[i] == 'X')
 				ft_print_hex(va_arg(pta, unsigned int), 'X',&ret);
 		}
 		else
-			ret += ft_putchar(*p);
-		++p;	
+			ret += ft_putchar(fmt[i]);
 	}
 	return (ret);
 }
