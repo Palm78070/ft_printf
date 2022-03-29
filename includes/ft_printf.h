@@ -29,6 +29,7 @@ void	ft_u_putnbr(unsigned int n, int *count);
 void	ft_print_hex(uintptr_t n, char c, int *count);
 int	print_address_hex(void *ptr);
 
+int     ft_check_print(const char *fmt, int i, va_list pta);
 int     ft_printf(const char *fmt, ...);
 
 #endif 

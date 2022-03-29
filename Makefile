@@ -9,6 +9,7 @@ SRCS_NAME:= main.c \
 	ft_printf_utils_cs.c \
 	ft_printf_utils_diu.c \
 	ft_printf_utils_pxX.c \
+	ft_printf_utils_print.c \
 
 OBJS_DIR = objs/
 OBJS_NAME:= $(SRCS_NAME:.c=.o)
